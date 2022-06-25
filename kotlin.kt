@@ -3,6 +3,8 @@ package com.example.variables
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.myapplication.R
+import com.example.myapplication.user
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -165,6 +167,34 @@ class MainActivity : AppCompatActivity() {
         fun change(view : View){
             var resultA =  returnFunc(10,20)
             textView.text = "result: " + resultA
+        }
+
+        //class call
+        var nameClass = user()
+
+
+        //Nullibility
+        var nullName : String? = null // null string
+
+        //1
+        if(nullName!= null){
+            println(nullName)
+        }
+        else{
+            println("null")
+        }
+
+        //2
+        // !! -> it must not be null , ? -> it can be null
+        println(nullName?.length)
+
+        //3 elvis
+        val mResult = nullName?.length ?: 10 // if nullName is null then set it do default value 10
+        println(mResult)
+
+        //4 let if is is null, let block will not execute
+        nullName?.let {
+            println("nullName is:" + it)
         }
 
     }
